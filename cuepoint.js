@@ -2,8 +2,10 @@
 	/* Cuepoint Coffee. A simple library for HTML5 Video Subtitles and Cuepoints */
 	
 	/**
+	 * @description Base utlity functions for Cuepoint
 	 * @class Utils 
-	*/
+	 * @public
+	 */
 	
 	var Cuepoint, Utils, utils;
 	Utils = (function() {
@@ -18,6 +20,7 @@
 	})();
 	
 	/**
+	 * @description Provides an simple interface for controlling HTML5 video
 	 * @class Cuepoint
 	 */
 	
