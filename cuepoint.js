@@ -1,5 +1,10 @@
+/* 
+ * Cuepoint. A simple library for HTML5 Video Subtitles and Cuepoints 
+ * Owain Lewis. www.owainlewis.com
+ * License: MIT http://www.opensource.org/licenses/mit-license.php
+ */
+
 (function() {
-	/* Cuepoint Coffee. A simple library for HTML5 Video Subtitles and Cuepoints */
 	
 	/**
 	 * @description Base utlity functions for Cuepoint
@@ -42,6 +47,11 @@
 			return _results;
 		};
 		Cuepoint.prototype.events = function() {};
+		
+		/**
+		 * @returns {Float} Video current time
+		 */
+		
 		Cuepoint.prototype.currentTime = function() {
 			return this.video.currentTime;
 		};
