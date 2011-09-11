@@ -1,46 +1,50 @@
-#Cuepoint Coffee. A library for HTML5 Video Subtitles
-class Utils
-	log: (@args) ->
-		console.log Array.prototype.slice.call this, arguments if window.console 
+### Cuepoint Coffee. A simple library for HTML5 Video Subtitles and Cuepoints ###
 
-class Cuepoint extends Utils
-	constructor: ->
-	  @nativeKeys = Object.keys
-	init: (@slides) ->
-	    #We need a reference to the basic elements we're using
-		@subtitles = document.getElementById "subtitles"
-		@video = document.getElementById "video" 
-		for key, value of slides
-			this.addSlide key, value
-		this.events.call
-		
-	events: ->
-		#Make cue point links if needed. Reqires underscore.js.
-		
-	currentTime: ->
-		@video.currentTime
-		
-	update: (@html) ->
-	    @subtitles.innerHTML = @html
-	
-	toString: (@html) ->
-	
-	setTime: (@time) ->
-		@video.currentTime = time
-		@video.play()
-		
-	addSlide: (@time, @html) ->
-		self = this
-		@video.addEventListener "timeupdate", ->
-				if this.currentTime >= time and this.currentTime <= time + 0.3
-					self.update html
-		, false
-	play: ->
-		@video.play()
-	pause: ->
-		if not @video.paused
-			@video.pause()
-	
+### @class Utils ###
+
+class Utils
+  log: (@args) ->
+    console.log Array.prototype.slice.call this, arguments if window.console 
+
+### @class Cuepoint ###
+
+class Cuepoint
+
+  constructor: ->
+    @nativeKeys = Object.keys
+
+  init: (@slides) ->
+    #We need a reference to the basic elements we're using
+    @subtitles = document.getElementById "subtitles"
+    @video = document.getElementById "video" 
+    for key, value of slides
+      this.addSlide key, value
+      this.events.call
+
+  events: ->
+  
+  currentTime: ->
+    @video.currentTime
+
+  update: (@html) ->
+    @subtitles.innerHTML = @html
+
+  setTime: (@time) ->
+    @video.currentTime = time
+    @video.play()
+
+  addSlide: (@time, @html) ->
+    self = this
+    @video.addEventListener "timeupdate", ->
+      if this.currentTime >= time and this.currentTime <= time + 0.3
+        self.update html
+    , false
+
+  play: ->
+    @video.play()
+  pause: ->
+    @video.pause() if not @video.paused 
+
 utils = new Utils
 window.cuepoint = new Cuepoint
 		
