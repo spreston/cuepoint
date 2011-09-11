@@ -7,7 +7,7 @@
 (function() {
 	
 	/**
-	 * @description Base utlity functions for Cuepoint
+	 * @description Base utility functions for Cuepoint
 	 * @class Utils 
 	 * @public
 	 */
