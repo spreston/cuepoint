@@ -1,12 +1,26 @@
-### Cuepoint Coffee. A simple library for HTML5 Video Subtitles and Cuepoints ###
+### 
 
-### @class Utils ###
+  Cuepoint Coffee. 
+  A simple library for HTML5 Video Subtitles and Cuepoints
+
+###
+
+###
+
+  @class Utils 
+
+###
 
 class Utils
   log: (@args) ->
-    console.log Array.prototype.slice.call this, arguments if window.console 
+    if window.console 
+      console.log Array.prototype.slice.call this, arguments
 
-### @class Cuepoint ###
+### 
+
+  @class Cuepoint 
+
+###
 
 class Cuepoint
 
@@ -21,8 +35,6 @@ class Cuepoint
       this.addSlide key, value
       this.events.call
 
-  events: ->
-  
   currentTime: ->
     @video.currentTime
 
