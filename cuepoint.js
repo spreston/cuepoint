@@ -1,15 +1,10 @@
 /* 
-  Cuepoint Coffee. 
+  Cuepoint. 
   A simple library for HTML5 Video Subtitles and Cuepoints
 */
 
 (function () {
 
-/*
-  
-    @class Utils 
-  
-  */
   var Cuepoint, Utils, utils;
   Utils = (function () {
     function Utils() {}
@@ -21,11 +16,7 @@
     };
     return Utils;
   })();
-/* 
-  
-    @class Cuepoint 
-  
-  */
+
   Cuepoint = (function () {
     function Cuepoint() {
       this.nativeKeys = Object.keys;
