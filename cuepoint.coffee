@@ -5,22 +5,10 @@
 
 ###
 
-###
-
-  @class Utils 
-
-###
-
 class Utils
   log: (@args) ->
     if window.console 
       console.log Array.prototype.slice.call this, arguments
-
-### 
-
-  @class Cuepoint 
-
-###
 
 class Cuepoint
 
@@ -59,8 +47,3 @@ class Cuepoint
 
 utils = new Utils
 window.cuepoint = new Cuepoint
-		
-
-	
-
-
