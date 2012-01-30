@@ -43,24 +43,24 @@
     };
 
     /*
-		* @method currentTime
-		* @returns integer
-		* @short Returns the current slide time
-		* @extra
-		* @example
-		*/
+     * @method currentTime
+     * @returns integer
+     * @short Returns the current slide time
+     * @extra
+     * @example
+     */
 
     Cuepoint.prototype.currentTime = function () {
       return this.video.currentTime;
     };
 
     /*
-		* @method
-		* @returns
-		* @short
-		* @extra
-		* @example
-		*/
+     * @method
+     * @returns
+     * @short
+     * @extra
+     * @example
+     */
 
     Cuepoint.prototype.update = function (html) {
       this.html = html;
@@ -68,12 +68,12 @@
     };
 
     /*
-		* @method
-		* @returns
-		* @short
-		* @extra
-		* @example
-		*/
+     * @method
+     * @returns
+     * @short
+     * @extra
+     * @example
+     */
 
     Cuepoint.prototype.setTime = function (time) {
       this.time = time;
@@ -100,26 +100,26 @@
         }
       }, false);
     };
-    
+
     /*
-		* @method
-		* @returns
-		* @short
-		* @extra
-		* @example
-		*/
+     * @method
+     * @returns
+     * @short
+     * @extra
+     * @example
+     */
 
     Cuepoint.prototype.play = function () {
       return this.video.play();
     };
-    
+
     /*
-		* @method
-		* @returns
-		* @short
-		* @extra
-		* @example
-		*/
+     * @method
+     * @returns
+     * @short
+     * @extra
+     * @example
+     */
 
     Cuepoint.prototype.pause = function () {
       if (!this.video.paused) {
