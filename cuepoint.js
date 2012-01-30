@@ -1,6 +1,13 @@
-/* 
-  Cuepoint. 
-  A simple library for HTML5 Video Subtitles and Cuepoints
+/*
+* Cuepoint JS
+* Author: Owain Lewis
+* Copyright: Copyright Owain Lewis. All rights reserved.
+* License: MIT License
+* Created: 2011
+* Version: 1.0.0
+*
+* A simple library for HTML5 Video Subtitles and Cuepoints
+*
 */
 
 (function () {
@@ -34,18 +41,54 @@
       }
       return _results;
     };
+
+    /*
+		* @method currentTime
+		* @returns integer
+		* @short Returns the current slide time
+		* @extra
+		* @example
+		*/
+
     Cuepoint.prototype.currentTime = function () {
       return this.video.currentTime;
     };
+
+    /*
+		* @method
+		* @returns
+		* @short
+		* @extra
+		* @example
+		*/
+
     Cuepoint.prototype.update = function (html) {
       this.html = html;
       return this.subtitles.innerHTML = this.html;
     };
+
+    /*
+		* @method
+		* @returns
+		* @short
+		* @extra
+		* @example
+		*/
+
     Cuepoint.prototype.setTime = function (time) {
       this.time = time;
       this.video.currentTime = time;
       return this.video.play();
     };
+
+    /*
+		* @method
+		* @returns
+		* @short
+		* @extra
+		* @example
+		*/
+
     Cuepoint.prototype.addSlide = function (time, html) {
       var self;
       this.time = time;
@@ -57,16 +100,39 @@
         }
       }, false);
     };
+    
+    /*
+		* @method
+		* @returns
+		* @short
+		* @extra
+		* @example
+		*/
+
     Cuepoint.prototype.play = function () {
       return this.video.play();
     };
+    
+    /*
+		* @method
+		* @returns
+		* @short
+		* @extra
+		* @example
+		*/
+
     Cuepoint.prototype.pause = function () {
       if (!this.video.paused) {
         return this.video.pause();
       }
     };
+
     return Cuepoint;
+
   })();
+
   utils = new Utils;
-  window.cuepoint = new Cuepoint;
+
+  window.cuepoint = new Cuepoint();
+
 }).call(this);
