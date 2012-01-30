@@ -82,12 +82,12 @@
     };
 
     /*
-		* @method
-		* @returns
-		* @short
-		* @extra
-		* @example
-		*/
+     * @method
+     * @returns
+     * @short
+     * @extra
+     * @example
+     */
 
     Cuepoint.prototype.addSlide = function (time, html) {
       var self;
