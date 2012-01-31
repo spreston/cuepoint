@@ -45,7 +45,7 @@
     /*
      * @method currentTime
      * @returns integer
-     * @short Returns the current slide time
+     * @short returns the current slide time
      * @extra
      * @example
      */
@@ -55,9 +55,9 @@
     };
 
     /*
-     * @method
+     * @method update
      * @returns
-     * @short
+     * @short updates the inner html of a slide
      * @extra
      * @example
      */
@@ -68,9 +68,9 @@
     };
 
     /*
-     * @method
+     * @method setTime
      * @returns
-     * @short
+     * @short sets the videos current time equal to the var passed in
      * @extra
      * @example
      */
@@ -82,9 +82,9 @@
     };
 
     /*
-     * @method
+     * @method addSlide
      * @returns
-     * @short
+     * @short add a new slide
      * @extra
      * @example
      */
@@ -102,9 +102,9 @@
     };
 
     /*
-     * @method
+     * @method play
      * @returns
-     * @short
+     * @short starts the HTML5 video player
      * @extra
      * @example
      */
@@ -114,9 +114,9 @@
     };
 
     /*
-     * @method
+     * @method pause
      * @returns
-     * @short
+     * @short pause the HTML5 video player
      * @extra
      * @example
      */
@@ -133,6 +133,6 @@
 
   utils = new Utils;
 
-  window.cuepoint = new Cuepoint();
+  window.cuepoint = new Cuepoint;
 
 }).call(this);
