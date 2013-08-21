@@ -28,17 +28,26 @@
     function Cuepoint() {
       this.nativeKeys = Object.keys;
     }
-    Cuepoint.prototype.init = function (slides) {
-      var key, value, _results;
+    Cuepoint.prototype.SUBTITLE = 1;
+    Cuepoint.prototype.TOGGLE_HTML = 2;
+    Cuepoint.prototype.init = function (slides, video, slideType) {
+      var key, value, _results, elements;
       this.slides = slides;
+      this.video = document.getElementById(video);
       this.subtitles = document.getElementById("subtitles");
-      this.video = document.getElementById("video");
       _results = [];
+      elements = [];
       for (key in slides) {
         value = slides[key];
-        this.addSlide(key, value);
+        elements.push(value);
+        if (slideType == this.SUBTITLE){
+            this.addSlide(key, value);
+        }else if (slideType == this.TOGGLE_HTML){
+            this.addCuepoint(key, value);
+        } 
         _results.push(this.events.call);
       }
+      this.elements = elements;
       return _results;
     };
 
@@ -66,6 +75,44 @@
       this.html = html;
       return this.subtitles.innerHTML = this.html;
     };
+
+    /*
+     * @method hideAll
+     * @returns
+     * @short hides all elements
+     * @extra
+     * @example
+     */
+
+    Cuepoint.prototype.hideAll = function () {
+      var elementString = "";
+      var space = "";
+      for (key in this.elements){
+        elementString += space + this.elements[key];
+        space = ", ";
+      }
+      
+      $(elementString).hide();
+      $(elementString).removeClass("cuepoint-visible");
+      $(elementString).addClass("cuepoint-hidden");
+      return this;
+
+    };
+
+    /*
+     * @method cuepointUpdate
+     * @returns
+     * @short hides all managed elements, shows next element
+     * @extra
+     * @example
+     */
+
+    Cuepoint.prototype.cuepointUpdate = function (element) {
+      this.hideAll();
+      $(element).show();
+      return this;
+    };
+
 
     /*
      * @method setTime
@@ -102,6 +149,26 @@
     };
 
     /*
+     * @method addCuepoint
+     * @returns
+     * @short add a new cuepoint
+     * @extra
+     * @example
+     */
+
+    Cuepoint.prototype.addCuepoint = function (time, element) {
+      var self;
+      this.time = time;
+      this.element = element;
+      self = this;
+      return this.video.addEventListener("timeupdate", function () {
+        if (this.currentTime >= time && this.currentTime <= time + 0.3) {
+          return self.cuepointUpdate(element);
+        }
+      }, false);
+    };
+
+    /*
      * @method play
      * @returns
      * @short starts the HTML5 video player
@@ -132,7 +199,5 @@
   })();
 
   utils = new Utils;
-
-  window.cuepoint = new Cuepoint;
 
 }).call(this);
