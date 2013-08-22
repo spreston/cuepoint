@@ -14,7 +14,7 @@ I modified this plugin to take a list of jquery selectors so that it could show 
 Simply pass in an object containing your slides to the cuepoint.init method. The time is in seconds
 
     /**
-     * .content5 and .content6 will be handled by #video2. Any number greater than the length of the video used will cause an element to be hidden and not shown.
+     * .content5 and .content6 will be handled by #video2. Any number greater than the length of the video used will cause an element to be hidden and not shown. Don't duplicate indices.
      */
 	$(document).ready(function(){
       var video = "video1";
@@ -24,7 +24,7 @@ Simply pass in an object containing your slides to the cuepoint.init method. The
         10: ".content3, .content4",
         15: "#video2",
         999: ".content5",
-        999: ".content6"
+        1000: ".content6"
       }
 	  cuepoint.init(slides, video, cuepoint.TOGGLE_HTML);//for original functionality use the cuepoint.SUBTITLE constant
 	  cuepoint.play();
