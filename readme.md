@@ -19,7 +19,7 @@ Simply pass in an object containing your slides to the cuepoint.init method. The
 	$(document).ready(function(){
       var video = "video1";
 	  var slides = {
-        0: "content1",
+        0: ".content1",
         5: ".content2",
         10: ".content3, .content4",
         15: "#video2",
